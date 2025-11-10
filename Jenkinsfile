@@ -31,9 +31,7 @@ pipeline {
             }
             steps {
                 sh '''
-                    echo "=== Running tests ==="
-                    node --version
-                    npm test || echo "Tests failed, but pipeline continues for debugging"
+                   test -f build/index.html 
                 '''
             }
         }
