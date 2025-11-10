@@ -36,11 +36,4 @@ pipeline {
             }
         }
     }
-
-    post {
-        always {
-            echo "Pipeline finished — archiving workspace contents"
-            archiveArtifacts artifacts: '**/*', allowEmptyArchive: true
-        }
-    }
 }
