@@ -1,6 +1,6 @@
 pipeline {
     agent any
-
+    /*
     stages {
         stage('Build') {
             agent {
@@ -10,6 +10,7 @@ pipeline {
                 }
             }
             steps {
+                
                 sh '''
                     echo "=== Building the project ==="
                     ls -la 
@@ -21,6 +22,7 @@ pipeline {
                 '''
             }
         }
+        */
 
         stage('Test') {
             agent {
