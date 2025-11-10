@@ -3,8 +3,6 @@ pipeline {
     stages {
         /*
 
-
-
         stage('Build') {
             agent {
                 docker {
@@ -41,6 +39,23 @@ pipeline {
                 '''
             }
         }
+        
+           stage('E2E') {
+            agent {
+                docker {
+                    image 'mcr.microsoft.com/playwright:v1.39.0-jammy'
+                    reuseNode true
+                }
+            }
+            steps {
+                sh '''
+                   npm install -g server
+                   serve -s build
+                   npx playwright test
+                '''
+            }
+        }
+
     }
 
     post {
